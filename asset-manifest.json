@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/music-info-finder/static/css/main.0ba1cb4d.chunk.css",
-    "main.js": "/music-info-finder/static/js/main.f32379df.chunk.js",
-    "main.js.map": "/music-info-finder/static/js/main.f32379df.chunk.js.map",
+    "main.js": "/music-info-finder/static/js/main.8349d4fa.chunk.js",
+    "main.js.map": "/music-info-finder/static/js/main.8349d4fa.chunk.js.map",
     "runtime-main.js": "/music-info-finder/static/js/runtime-main.65ba6c9e.js",
     "runtime-main.js.map": "/music-info-finder/static/js/runtime-main.65ba6c9e.js.map",
     "static/js/2.916e81a8.chunk.js": "/music-info-finder/static/js/2.916e81a8.chunk.js",
     "static/js/2.916e81a8.chunk.js.map": "/music-info-finder/static/js/2.916e81a8.chunk.js.map",
     "index.html": "/music-info-finder/index.html",
-    "precache-manifest.7b4f346c42381545e3835175f4d183f8.js": "/music-info-finder/precache-manifest.7b4f346c42381545e3835175f4d183f8.js",
+    "precache-manifest.cbba0f2b2d54f9deb266d41e904f8078.js": "/music-info-finder/precache-manifest.cbba0f2b2d54f9deb266d41e904f8078.js",
     "service-worker.js": "/music-info-finder/service-worker.js",
     "static/css/main.0ba1cb4d.chunk.css.map": "/music-info-finder/static/css/main.0ba1cb4d.chunk.css.map",
     "static/js/2.916e81a8.chunk.js.LICENSE.txt": "/music-info-finder/static/js/2.916e81a8.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.65ba6c9e.js",
     "static/js/2.916e81a8.chunk.js",
     "static/css/main.0ba1cb4d.chunk.css",
-    "static/js/main.f32379df.chunk.js"
+    "static/js/main.8349d4fa.chunk.js"
   ]
 }
