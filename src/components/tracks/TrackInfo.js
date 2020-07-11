@@ -4,6 +4,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 import Album from './Album';
+import Artist from './Artist';
 import Spinner from '../layouts/Spinner';
 
 // import track from '../../static_data/track';
@@ -13,6 +14,7 @@ const TrackInfo = (props) => {
   // setting up state members
   const [track, setTrack] = useState('');
   const [album, setAlbum] = useState('');
+  const [artist, setArtist] = useState('');
 
   useEffect(() => {
     // Sending request to api with track id to get the track information
@@ -22,15 +24,19 @@ const TrackInfo = (props) => {
         `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${props.match.params.id}`
       )
       .then((res) => {
-        // let track = res.data;
         setTrack(res.data);
         return axios.get(
           `https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/${res.data.album.id}`
         );
       })
       .then((res) => {
-        // let album = res.data;
         setAlbum(res.data);
+        return axios.get(
+          `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${res.data.artist.id}`
+        );
+      })
+      .then((res) => {
+        setArtist(res.data);
       })
       .catch((err) => console.error(err));
   }, [props.match.params.id]);
@@ -45,8 +51,8 @@ const TrackInfo = (props) => {
   } else {
     const trackDuration = moment.utc(track.duration * 1000).format('HH:mm:ss');
     return (
-      <>
-        <Link to="/" className="btn btn-dark btn-sm mb-4">
+      <div className="container">
+        <Link to="/" className="btn btn-dark btn-sm mb-4 ml-3">
           Go Back
         </Link>
         <div className="container">
@@ -54,7 +60,7 @@ const TrackInfo = (props) => {
             <div className="card-header h4">
               {track.title}{' '}
               <span className="text-secondary h5 text-muted"> by </span>
-              {track.artist.name}
+              {artist.name}
             </div>
 
             <div className="card-body shadow-lg">
@@ -114,14 +120,14 @@ const TrackInfo = (props) => {
                       </a>
                     </li>
                     <li className="list-group-item">
-                      <a
-                        href={track.artist.link}
-                        rel="noopener noreferrer"
-                        target="_blank"
+                      <button
+                        type="button"
                         className="btn btn-block btn-dark"
+                        data-toggle="modal"
+                        data-target="#artistModal"
                       >
-                        <i className="far fa-user"></i> Artist Link
-                      </a>
+                        <i className="fas fa-compact-disc" /> Artist Info
+                      </button>
                     </li>
                     <li className="list-group-item">
                       <button
@@ -155,7 +161,7 @@ const TrackInfo = (props) => {
                               href={contributor.link}
                               rel="noopener noreferrer"
                               target="_blank"
-                              className="btn btn-block btn-success"
+                              className="btn btn-block btn-info"
                             >
                               <i className="fas fa-user-alt"></i>{' '}
                               {contributor.name}
@@ -172,11 +178,12 @@ const TrackInfo = (props) => {
               {/* album details modal */}
               <Album album={album} />
 
-              {/* <p className="card-text">Lyrics</p> */}
+              {/* artist details modal */}
+              <Artist artist={artist} />
             </div>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 };

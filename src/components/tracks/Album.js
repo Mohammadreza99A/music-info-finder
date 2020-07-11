@@ -103,13 +103,23 @@ const Album = (props) => {
                               key={track.id}
                               to={`${track.id}`}
                               target="_blank"
-                              className="btn btn-success  btn-block mg-b-4"
+                              className="btn btn-info  btn-block mg-b-4"
                             >
                               <i className="fas fa-music " /> {track.title}
                             </Link>
                           ))}
                         </div>
                       </div>
+                    </li>
+                    <li className="list-group-item">
+                      <a
+                        href={album.link}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        className="btn btn btn-dark btn-block"
+                      >
+                        <i className="fab fa-deezer"></i> Deezer Album Page
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -123,15 +133,6 @@ const Album = (props) => {
               >
                 Close
               </button>
-              <a
-                href={album.link}
-                rel="noopener noreferrer"
-                target="_blank"
-                className="btn btn btn-primary"
-                style={{ margin: '25px' }}
-              >
-                <i className="fab fa-deezer"></i> Deezer Album Page
-              </a>
             </div>
           </div>
         </div>
