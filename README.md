@@ -32,7 +32,7 @@ mohammadreza99a@yahoo.com
 
 ### Version
 
-1.0.1
+1.0.2
 
 ### License
 

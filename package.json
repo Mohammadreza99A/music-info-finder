@@ -1,7 +1,7 @@
 {
   "name": "music-info-finder",
   "description": "A react app to find information about a searched song or artist or album using Deezer API",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Mohammadreza Amini",
   "license": "MIT",
   "private": true,
