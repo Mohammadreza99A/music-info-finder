@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Importing components
 import Navbar from './components/layouts/Navbar';
@@ -13,7 +13,7 @@ import { ContextController } from './context';
 function App() {
   return (
     <ContextController>
-      <Router>
+      <Router basename="/">
         <React.Fragment>
           <Navbar />
           <div className="container">
