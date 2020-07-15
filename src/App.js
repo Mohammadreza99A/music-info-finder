@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 // Importing components
 import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/Footer';
 import Index from './components/layouts/Index';
 import TrackInfo from './components/tracks/TrackInfo';
+import NotFoundPage from './components/NotFoundPage';
+import About from './components/About';
 
 import { ContextController } from './context';
 
@@ -23,24 +26,23 @@ function App() {
 
   function getInitilTheme() {
     const savedTheme = JSON.parse(localStorage.getItem('dark'));
-    // const userPreferanceThem = getPreferedTheme();
     return savedTheme || false;
   }
-
-  // function getPreferedTheme() {
-  //   if (!window.matchMedia) return;
-  //   return window.matchMedia('(prefers-color-scheme: dark)');
-  // }
 
   return (
     <ContextController>
       <Router basename="/">
         <div className={darkMode ? 'dark-mode' : 'light-mode'}>
-          <Navbar themeMode={darkMode} onChange={changeTheme} />
+          <Helmet>
+            <title>Music Info Finder | Home</title>
+          </Helmet>
+          <Navbar onChange={changeTheme} darkMode={darkMode} />
           <div>
             <Switch>
               <Route exact path="/" component={Index}></Route>
               <Route exact path="/info/track/:id" component={TrackInfo}></Route>
+              <Route exact path="/about" component={About} />
+              <Route path="*" component={NotFoundPage} />
             </Switch>
           </div>
           <Footer />

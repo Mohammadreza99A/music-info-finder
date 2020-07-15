@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import Album from './Album';
 import Artist from './Artist';
@@ -47,11 +48,21 @@ const TrackInfo = (props) => {
     album === undefined ||
     Object.keys(album).length === 0
   ) {
-    return <Spinner />;
+    return (
+      <div>
+        <Helmet>
+          <title>MIF | Music Information</title>
+        </Helmet>
+        <Spinner />
+      </div>
+    );
   } else {
     const trackDuration = moment.utc(track.duration * 1000).format('HH:mm:ss');
     return (
       <div className="container">
+        <Helmet>
+          <title>MIF | Music Information</title>
+        </Helmet>
         <Link to="/" className="btn btn-dark btn-sm mb-4 ml-3">
           Go Back
         </Link>

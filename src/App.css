@@ -39,6 +39,10 @@
   font-weight: normal;
 }
 
+.toggle-box-label-left:empty {
+  margin-left: 0 !important;
+}
+
 .toggle-box-label-left:before {
   content: '';
   display: block;

@@ -1,14 +1,15 @@
 import React from 'react';
-import spinner from './spinner.gif';
 
 function Spinner() {
   return (
-    <div>
-      <img
-        src={spinner}
-        alt="Loading..."
-        style={{ width: '200px', margin: ' 40px auto', display: 'block' }}
-      />
+    <div className="text-center mb-5 my-5">
+      <div
+        className="spinner-border"
+        style={{ width: '20rem', height: '20rem' }}
+        role="status"
+      >
+        <span className="sr-only">Loading...</span>
+      </div>
     </div>
   );
 }
