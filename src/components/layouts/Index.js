@@ -1,14 +1,25 @@
+import { Container } from 'react-bootstrap';
 import React from 'react';
-import Search from '../tracks/Search';
-import Tracks from '../tracks/Tracks';
+import { Jumbotron } from 'react-bootstrap';
 
-function Index() {
+import Tracks from '../tracks/Tracks';
+import SearchForm from './SearchForm';
+
+const Index = () => {
   return (
-    <div className="container">
-      <Search />
+    <Container>
+      <Jumbotron fluid className="shadow-lg mb-4 p-4">
+        <h1 className="display-4 text-center h1 search-title">
+          <i className="fas fa-music"></i> Search For A Song, Artist or an Album
+        </h1>
+        <p className="lead text-center">
+          Get the information for any song, artist or any album
+        </p>
+        <SearchForm />
+      </Jumbotron>
       <Tracks />
-    </div>
+    </Container>
   );
-}
+};
 
 export default Index;

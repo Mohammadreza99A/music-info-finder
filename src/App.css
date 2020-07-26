@@ -148,6 +148,14 @@
   color: #fff !important;
 }
 
+.dark-mode .jumbotron {
+  background-color: #1a1919;
+}
+
+.dark-mode .jumbotron-fluid {
+  background-color: #1a1919;
+}
+
 /* Footer */
 .footer {
   position: fixed;

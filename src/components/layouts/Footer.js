@@ -1,11 +1,12 @@
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className="page-footer font-small text-light bg-dark">
-      <div className="container text-center">
-        <div className="row">
-          <div className="col-md-12 py-3">
+      <Container className="text-center">
+        <Row>
+          <Col md={12} className="py-3">
             <div className="flex-center">
               <a
                 href="https://www.facebook.com/mohammadreza.amini.33"
@@ -36,16 +37,15 @@ function Footer() {
                 <i className="fab fa-github fa-lg white-text fa-2x"> </i>
               </a>
             </div>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
 
       <div className="footer-copyright text-center py-3">
         © 2020 Copyright : Mohammadreza Amini
-        {/* <a href="https://mdbootstrap.com/"> Mohammadreza Amini</a> */}
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

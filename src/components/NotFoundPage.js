@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { Container } from 'react-bootstrap';
 
 function NotFoundPage() {
   return (
-    <div className="container vh-100">
+    <Container className="vh-100">
       <Helmet>
         <title>MIF | Page Not Found</title>
       </Helmet>
       <h1 className="display-1 text-center">404</h1>
-      <div className="container">
+      <Container>
         <p className="text-justify lead">
           Maybe this page moved? Got deleted? Is hiding out in quarantine? Never
           existed in the first place?
@@ -19,8 +20,8 @@ function NotFoundPage() {
             <i className="fas fa-home"></i> Go Home
           </Link>
         </p>
-      </div>
-    </div>
+      </Container>
+    </Container>
   );
 }
 

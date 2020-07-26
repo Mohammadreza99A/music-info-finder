@@ -1,24 +1,26 @@
 import React, { useContext } from 'react';
 import { Context } from '../../context';
-import Spinner from '../layouts/Spinner';
+import { useHistory } from 'react-router-dom';
 import { Card, Row } from 'react-bootstrap';
 
 import Track from './Track';
 
-const Tracks = () => {
+const SearchResults = () => {
   const [state] = useContext(Context);
-  const { track_list } = state;
+  const { search_res } = state;
+  const history = useHistory();
 
-  if (track_list === undefined || track_list.length === 0) {
-    return <Spinner />;
+  if (search_res === undefined || search_res.length === 0) {
+    history.push('/'); // if there is nothing to be shown go back to Home
+    return <></>;
   } else {
     return (
       <>
         <Card className="shadow-lg mb-4 p-3">
           <Card.Body>
-            <h3 className="text-center mb-4">Most Popular Tracks</h3>
+            <h3 className="text-center mb-4">Search Results </h3>
             <Row>
-              {track_list.map((item) => (
+              {search_res.map((item) => (
                 <Track key={item.id} track={item} />
               ))}
             </Row>
@@ -29,4 +31,4 @@ const Tracks = () => {
   }
 };
 
-export default Tracks;
+export default SearchResults;

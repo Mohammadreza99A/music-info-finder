@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -10,6 +11,7 @@ import Index from './components/layouts/Index';
 import TrackInfo from './components/tracks/TrackInfo';
 import NotFoundPage from './components/NotFoundPage';
 import About from './components/About';
+import SearchResults from './components/tracks/SearchResults';
 
 import { ContextController } from './context';
 
@@ -34,6 +36,7 @@ function App() {
       <Router basename="/">
         <div className={darkMode ? 'dark-mode' : 'light-mode'}>
           <Helmet>
+            <html className={darkMode ? 'dark-mode' : 'light-mode'}></html>
             <title>Music Info Finder | Home</title>
           </Helmet>
           <Navbar onChange={changeTheme} darkMode={darkMode} />
@@ -42,6 +45,7 @@ function App() {
               <Route exact path="/" component={Index}></Route>
               <Route exact path="/info/track/:id" component={TrackInfo}></Route>
               <Route exact path="/about" component={About} />
+              <Route exact path="/search" component={SearchResults} />
               <Route path="*" component={NotFoundPage} />
             </Switch>
           </div>

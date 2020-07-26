@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Col, Card } from 'react-bootstrap';
 
 const Track = (props) => {
   const { track } = props;
 
   return (
-    <div className="col-md-4">
-      <div className="card mb-4 shadow-sm">
-        <img className="card-img-top" src={track.album.cover_big} alt="Cover" />
-        <div className="card-body shadow">
-          <h5 className="card-title">{track.artist.name}</h5>
-          <p className="card-text">
+    <Col md={4}>
+      <Card className="mb-4 shadow-sm">
+        <Card.Img variant="top" src={track.album.cover_big} alt="Cover" />
+        <Card.Body className="shadow">
+          <Card.Title>{track.artist.name}</Card.Title>
+          <Card.Text>
             <strong>
               <i className="fas fa-play" /> Track
             </strong>{' '}
@@ -20,7 +21,7 @@ const Track = (props) => {
               <i className="fas fa-compact-disc"></i> Album
             </strong>
             : {track.album.title}
-          </p>
+          </Card.Text>
           <Link
             to={`info/track/${track.id}`}
             className="card-link btn btn-dark btn-block"
@@ -35,9 +36,9 @@ const Track = (props) => {
           >
             <i className="fas fa-play" /> Play
           </a>
-        </div>
-      </div>
-    </div>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 

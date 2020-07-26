@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { Container } from 'react-bootstrap';
 
 function About() {
   return (
-    <div className="container mb-5 vh-100">
+    <Container className="mb-5 vh-100">
       <Helmet>
         <title>MIF | About</title>
       </Helmet>
@@ -54,7 +55,7 @@ function About() {
           <i className="fas fa-home"></i> Go Home
         </Link>
       </div>
-    </div>
+    </Container>
   );
 }
 

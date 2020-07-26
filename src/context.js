@@ -6,7 +6,7 @@ export const Context = React.createContext();
 export function ContextController({ children }) {
   let intialState = {
     track_list: [],
-    heading: '',
+    search_res: [],
   };
 
   const [state, setState] = useState(intialState);
@@ -20,7 +20,6 @@ export function ContextController({ children }) {
       .then((res) => {
         setState({
           track_list: res.data.data,
-          heading: 'Most Searched Titles',
         });
       })
       .catch((err) => console.error(err));
