@@ -156,6 +156,11 @@
   background-color: #1a1919;
 }
 
+.dark-mode .pagination > li > a {
+  background-color: #3b3a3a !important;
+  color: #fff !important;
+}
+
 /* Footer */
 .footer {
   position: fixed;

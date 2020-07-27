@@ -11,8 +11,6 @@ import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Form, InputGroup, Button } from 'react-bootstrap';
 
-import SearchResults from '../tracks/SearchResults';
-
 const SearchForm = () => {
   const firstRender = useRef(true);
   const [state, setState] = useContext(Context);
@@ -46,7 +44,7 @@ const SearchForm = () => {
         .then((res) => {
           setState({
             ...state,
-            search_res: res.data.data,
+            search_res: res.data,
           });
         })
         .catch((err) => console.error(err));
@@ -61,6 +59,9 @@ const SearchForm = () => {
     setUserInput(e.target.value);
   };
 
+  /**
+   * redirect to search page if search button is clicked
+   */
   const onSearch = () => {
     setUserInput('');
     history.push('/search');
@@ -103,20 +104,22 @@ const SearchForm = () => {
               overflowX: 'hidden',
             }}
           >
-            {state.search_res
-              ? state.search_res.map((track) => {
-                  return (
-                    <Link
-                      to={`/info/track/${track.id}`}
-                      key={track.id}
-                      className="dropdown-item"
-                      onClick={() => setUserInput('')}
-                    >
-                      {track.artist.name} - {track.title}
-                    </Link>
-                  );
-                })
-              : null}
+            {state.search_res && state.search_res.data ? (
+              state.search_res.data.map((track) => {
+                return (
+                  <Link
+                    to={`/info/track/${track.id}`}
+                    key={track.id}
+                    className="dropdown-item"
+                    onClick={() => setUserInput('')}
+                  >
+                    {track.artist.name} - {track.title}
+                  </Link>
+                );
+              })
+            ) : (
+              <span className="dropdown-item">Loading...</span>
+            )}
           </div>
         </div>
       </Form.Group>

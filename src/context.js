@@ -6,7 +6,7 @@ export const Context = React.createContext();
 export function ContextController({ children }) {
   let intialState = {
     track_list: [],
-    search_res: [],
+    search_res: {},
   };
 
   const [state, setState] = useState(intialState);
