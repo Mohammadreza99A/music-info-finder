@@ -38,9 +38,7 @@ const SearchForm = () => {
     // searching the entered track in API and returning the result to dispatch so the state changes
     if (userInput.length !== 0) {
       axios
-        .get(
-          `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${userInput}`
-        )
+        .get(`https://api.deezer.com/search?q=${userInput}`)
         .then((res) => {
           setState({
             ...state,

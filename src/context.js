@@ -12,11 +12,8 @@ export function ContextController({ children }) {
   const [state, setState] = useState(intialState);
 
   useEffect(() => {
-    // getting the top 10 most searched songs from Deezer API
     axios
-      .get(
-        'https://cors-anywhere.herokuapp.com/http://api.deezer.com/chart/0/tracks'
-      )
+      .get('https://api.deezer.com/chart/0/tracks')
       .then((res) => {
         setState({
           track_list: res.data.data,

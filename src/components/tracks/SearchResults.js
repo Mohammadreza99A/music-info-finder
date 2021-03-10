@@ -16,7 +16,7 @@ const SearchResults = () => {
   const getNextPage = () => {
     if (typeof search_res.next !== 'undefined') {
       axios
-        .get(`https://cors-anywhere.herokuapp.com/${search_res.next}`)
+        .get(`${search_res.next}`)
         .then((res) => {
           setState({
             ...state,
@@ -31,7 +31,7 @@ const SearchResults = () => {
   const getPrevPage = () => {
     if (typeof search_res.prev !== 'undefined') {
       axios
-        .get(`https://cors-anywhere.herokuapp.com/${search_res.prev}`)
+        .get(`${search_res.prev}`)
         .then((res) => {
           setState({
             ...state,
@@ -50,7 +50,7 @@ const SearchResults = () => {
     else if (typeof search_res.prev !== 'undefined')
       query = search_res.prev.split('index')[0];
     axios
-      .get(`https://cors-anywhere.herokuapp.com/${query}`)
+      .get(`${query}`)
       .then((res) => {
         setState({
           ...state,
