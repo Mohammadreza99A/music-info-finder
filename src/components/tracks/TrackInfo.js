@@ -29,18 +29,18 @@ const TrackInfo = (props) => {
     // and with album id to get album infotmation
     axios
       .get(
-        `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${props.match.params.id}`
+        `https://mohammadreza-cors-everywhere.herokuapp.com/https://api.deezer.com/track/${props.match.params.id}`
       )
       .then((res) => {
         setTrack(res.data);
         return axios.get(
-          `https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/${res.data.album.id}`
+          `https://mohammadreza-cors-everywhere.herokuapp.com/https://api.deezer.com/album/${res.data.album.id}`
         );
       })
       .then((res) => {
         setAlbum(res.data);
         return axios.get(
-          `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${res.data.artist.id}`
+          `https://mohammadreza-cors-everywhere.herokuapp.com/https://api.deezer.com/artist/${res.data.artist.id}`
         );
       })
       .then((res) => {

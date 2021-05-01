@@ -13,7 +13,9 @@ export function ContextController({ children }) {
 
   useEffect(() => {
     axios
-      .get('https://api.deezer.com/chart/0/tracks')
+      .get(
+        'https://mohammadreza-cors-everywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks'
+      )
       .then((res) => {
         setState({
           track_list: res.data.data,
